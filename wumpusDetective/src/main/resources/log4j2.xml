@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="WumpusDetective">
+
+	<Appenders>
+
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} %msg%n
+				</Pattern>
+			</PatternLayout>
+		</Console>
+<!-- 
+		<RollingFile name="rolling_file"
+            fileName="detective-${sys:detectiveName}.log"
+			filePattern="detective-${sys:detectiveName}.log.%i" append="true">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-18t %-20C{1} %-5level %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="128 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+-->	
+		<Console name="console_stdout" target="SYSTEM_OUT">
+			<PatternLayout>
+                <Pattern>%highlight{%d{yyyy-MM-dd HH:mm:ss} %-18t %-20C{1} %-5level %m%n}{TRACE=white}</Pattern>
+			</PatternLayout>
+		</Console>
+
+	</Appenders>
+	<Loggers>
+<!-- 
+        <Logger name="de.unirostock" level="${sys:logLevel:-debug}" additivity="false">
+			<AppenderRef ref="rolling_file" />
+		</Logger>
+-->
+        <Logger name="de.unirostock" level="${sys:logLevel:-debug}" additivity="false">
+			<AppenderRef ref="console_stdout" />
+		</Logger>
+		<Root level="warn">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,10 @@
+target/
+*.log
+*.log.*
+.project
+.settings/**
+.classpath
+*.idea
+*.iml
+*.csv
+jobs_file
