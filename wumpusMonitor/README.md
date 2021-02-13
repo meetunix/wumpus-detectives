@@ -1,5 +1,7 @@
 # wumpusMonitor
 
+[English README here](README_EN.md)
+
 Der Monitor generiert und verwaltet die Spielwelt. Er bietet eine Schnittstelle,
 über das sich die Agenten registrieren, ihren Zustand melden und
 Informationen zu ihrer aktuellen Position abrufen können.

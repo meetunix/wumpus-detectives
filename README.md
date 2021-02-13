@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=flat"></a>
 </p>
 
-[english version](README_EN.md)
+[English README here](README_EN.md)
 
 WumpusDetectives ist ein vollständiges Multi-Agenten-Framework für die
 Simulation einer erweiterten
