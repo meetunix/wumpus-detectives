@@ -5,85 +5,79 @@
 <img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=flat"></a>
 </p>
 
-[english version](README_EN.md)
+[German README here](README_DE.md)
 
-WumpusDetectives ist ein vollständiges Multi-Agenten-Framework für die
-Simulation einer erweiterten
-[Wumpus-Welt](https://de.wikipedia.org/wiki/Wumpus-Welt).
-Die Welt wird durch den wumpusMonitor simuliert.
-Die Agenten (wumpusDetective) können über ein simples, auf TCP basierendes
-Protokoll, untereinander und mit dem Monitor kommunizieren.
+WumpusDetectives is a multi-agent framework for the simulation of an extended [wumpus world](https://de.wikipedia.org/wiki/Wumpus-Welt).
+The world is simulated by the wumpusMonitor.
+The agents (wumpusDetective) can communicate with each other and with the monitor via a simple TCP-based protocol.
 
-## Die Agenten (wumpusDetective)
+## The Agents (wumpusDetective)
 
-Die Agenten sind in Java implementiert und können sich untereinander über ein sehr
-einfaches Protokoll (via TCP) Nachrichten schicken. Jeder Agent benötigt eine
-installierte Java-Laufzeit-umgebung (JRE). Der Agent selbst ist eine JAR-Datei in
-der bereits alle Abhängigkeiten verpackt sind. Die derzeit verwendete Agentenlogik
-*CarefulAgent* wurde von [LiquidFun](https://github.com/LiquidFun) entwickelt.
+The agents are implemented in Java and can send messages to each other via a very simple
+simple protocol (via TCP). Each agent needs an
+installed Java Runtime Environment (JRE). The agent itself is a JAR file in
+which already contains all dependencies. The currently used agent logic
+*CarefulAgent* was developed by [LiquidFun](https://github.com/LiquidFun).
+The rest of the project was developed by [meetunix](https://github.com/meetunix)
 
-[**Dokumentation zu wumpusDetective**](wumpusDetective/README.md)
+[**Documentation for wumpusDetective**](wumpusDetective/README.md)
 
 
-**Beispielausgabe des Monitors und eines Agenten (CarefulAgent):**
+**Example output of the monitor and an agent (CarefulAgent):**
 
-![Ausgabe CarefulAgent](media/agent_4_agents.gif)
+![Output CarefulAgent](media/agent_4_agents.gif)
 
 
 
-## Der Monitor (wumpusMonitor)
+## The Monitor (wumpusMonitor)
 
-Der Monitor generiert und verwaltet die Spielwelt. Er bietet eine Schnittstelle,
-über die sich  Agenten registrieren, ihren Zustand melden und
-Informationen zu ihrer aktuellen Position abrufen können.
-Des Weiteren bietet der Monitor auch ein HTTP-Endpoint über den der gesamte Zustand der
-Welt erfragt werden kann. Eine externe Software kann diese Daten
-zur Visualisierung nutzen. Für jede Simulaion werden Parameter und Ergebnisse
-in die Datei `results_benchmark.csv` zu späteren Auswertung gespeichert.
+The monitor generates and manages the game world. It provides an interface for
+agents to register to, report their state and get information about their current position.
+The monitor also provides an HTTP endpoint that can be used to query the entire state of the world.
+An external software can use this data for visualization. 
+For each simulation parameters and results are are stored in the file `results_benchmark.csv` for later evaluation.
 
 
-[**Dokumentation des Monitors**](wumpusMonitor/README.md)
+[**Documentation of the wumpusMonitor**](wumpusMonitor/README.md)
 
 
 
 
-## Gemeinsame Bibliothek (wumpusCore)
+## Shared library (wumpusCore)
 
-*wumpusCore* bietet gemeinsam benutze Klassen und wird automatisch mit übersetzt.
+*wumpusCore* provides shared classes and is automatically compiled together with the other projects.
 
 
-## Übersetzen
+## Compilation
 
-Voraussetzung ist Java 11 und Apache Maven.
+Java 11 and Apache Maven are required.
 
-Mit folgendem Befehl lassen sich beide Projekte: *wumpusDetective* und
-*wumpusMonitor* übersetzen.
+With the following command both projects (*wumpusDetective* and
+*wumpusMonitor*) can be compiled.
 
 ```
 mvn clean compile package
 ```
 
-## Simulation und Ergebnisvisualisierung
+## Simulation and result visualization
 
-Mithilfe des Shell-Skriptes `benchmark.sh` lassen sich Simulationsläufe
-mit verschiedenen Parametern durchführen.
-Zur Ausführung wird [GNU Parallel](https://www.gnu.org/software/parallel/)
-benötigt, das sich um die nebenläufige Ausführung von Monitor und der Agenten kümmert.
-GNU Parallel sollte in jeder gängigen Linux-Distribution als Paket vorliegen, meist
-unter dem namen `parallel`.
-Da für jeden Agenten eine eigene Java-VM gestartet wird, ist der Speicherbedarf
-relativ hoch. Eine Simulation mit 32 Agenten benötigt auf einem System, ca. 14 GiB Speicher.
-Die Agenten können bei bedarf auf verschiedene Systeme ausgelagert werden, sodass auch Simulationen
-mit mehr als 100 Agenten möglich sind.
+The shell script `benchmark.sh` can be used to run simulations with different parameters.
+For execution [GNU Parallel](https://www.gnu.org/software/parallel/) is used which takes care of the concurrent execution of the monitor and the agents.
+GNU Parallel should be available as a package in every common Linux distribution, mostly under the name `parallel`.
+Since a separate Java VM is started for each agent, the memory requirements are relatively high.
+A simulation with 32 agents needs about 14 GiB memory on one system.
+The agents can be ran on different systems, which means that simulations with more than 100 agents are possible.
 
 
-Das Python-Skript `plot_results.py` visualisiert die Simulationsergebnisse:
+The Python script `plot_results.py` visualizes the simulation results:
 
     plot_results.py results_benchmark.csv
 
 ![Steps](misc/result_steps.png)
 ![Reward](misc/result_rewards.png)
 
-## Visualisierung (wumpusVisualization)
+## Visualization (wumpusVisualization)
 
-Visualisiert die simulierte Welt.
+Visualizes the simulated world.
+
+See (TODO: add repository)
