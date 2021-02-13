@@ -36,12 +36,13 @@ test-scripts/startParallelAgents.sh 16
 ## Ausgabe
 
 Auch der Agent gibt seinen Zustand auf der Kommandozeile aus. Im folgenden Beispiel,
-sieht man die Ausgabe des Agenten (rechts) und die Ausgabe des Monitors (links)
+sieht man die Ausgabe eines *CarefullAgent* (rechts) und die Ausgabe des Monitors (links)
 mit drei weiteren Agenten, einer Kommunikationsdistanz von 4 Feldern und einer
 Drosselung von 50 ms pro Aktion. Man kann sehr gut erkennen, wie der Agent seinen
 Weltzustand aktualisiert, wenn andere Agenten in Kommunikationsreichweite sind.
 
-TODO
+
+![Ausgabe CarefullAgent](../media/agent_4_agents.gif)
 
 ## Verwendung
 

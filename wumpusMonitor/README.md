@@ -39,7 +39,9 @@ Der Monitor schreibt eine Log-Datei in das Verzeichnis, aus dem er gestartet wur
 Beispielausgabe des Monitors mit 8 Agenten, einer Kommunikationsreichweite von 2 Feldern
 und keiner Drosselung:
 
-![Ausgabe auf Kommandozeile](../media/monitor_8_agents.webm)
+
+![Ausgabe des Monitors](../media/monitor_8_agents.gif)
+
 
 
 ## HTTP REST-API

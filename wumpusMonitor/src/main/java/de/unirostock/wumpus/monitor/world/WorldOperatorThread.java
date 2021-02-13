@@ -343,7 +343,7 @@ public class WorldOperatorThread implements Runnable {
 			if (actionSequence.size() > 0) {
 
 				String logActionCount = new String(String.format(
-						"##### Starting action sequence number: %d with %d registered agents #####",
+						"### action sequence number: %d with %d registered agents ###",
 						context.getCurrentActionCount(),actionSequence.size()
 						));
 				logger.debug(logActionCount);
