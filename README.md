@@ -25,9 +25,9 @@ der bereits alle Abhängigkeiten verpackt sind. Die derzeit verwendete Agentenlo
 [**Dokumentation zu wumpusDetective**](wumpusDetective/README.md)
 
 
-**Beispielausgabe des Monitors und eines Agenten (CarefullAgent):**
+**Beispielausgabe des Monitors und eines Agenten (CarefulAgent):**
 
-![Ausgabe CarefullAgent](media/agent_4_agents.gif)
+![Ausgabe CarefulAgent](media/agent_4_agents.gif)
 
 
 

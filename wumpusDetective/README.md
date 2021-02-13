@@ -42,7 +42,7 @@ Drosselung von 50 ms pro Aktion. Man kann sehr gut erkennen, wie der Agent seine
 Weltzustand aktualisiert, wenn andere Agenten in Kommunikationsreichweite sind.
 
 
-![Ausgabe CarefullAgent](../media/agent_4_agents.gif)
+![Ausgabe CarefulAgent](../media/agent_4_agents.gif)
 
 ## Verwendung
 
