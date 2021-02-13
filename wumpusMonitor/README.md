@@ -64,7 +64,7 @@ Unkomprimiertes JSON-Objekt, bei einer 32x32 Feldgröße: ca. 47 KiB
 curl -H "accept: application/json" 'http://127.0.0.1:12345/wumpus/worldstate'
 ```
 
-[Beispielergebnis](wumpusMonitor/samples/sample_world_state.json)
+[Beispielergebnis](samples/sample_world_state.json)
 
 #### 2. Möglichkeit: unkomprimiert (m2h)
 
@@ -74,7 +74,7 @@ Für einen Menschen besser lesbar, bei einer 32x32 Feldgröße: ca. 67 KiB
 curl -H "accept: application/json" 'http://127.0.0.1:12345/wumpus/worldstate?human=true'
 ```
 
-[Beispielergebnis](wumpusMonitor/samples/sample_world_state_hr.json)
+[Beispielergebnis](samples/sample_world_state_hr.json)
 
 
 #### 3. Möglichkeit: gzip komprimiert (m2m)
@@ -85,4 +85,4 @@ GZIP-komprimiertes JSON-Objekt, bei einer 32x32 Feldgröße: < 1 KiB
 curl -H "accept: application/json" -H "accept-encoding: gzip" 'http://127.0.0.1:12345/wumpus/worldstate'
 ```
 
-[Beispielergebnis](wumpusMonitor/samples/sample_world_state.json.gzip)
+[Beispielergebnis](samples/sample_world_state.json.gzip)
