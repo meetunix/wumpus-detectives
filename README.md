@@ -22,9 +22,14 @@ installierte Java-Laufzeit-umgebung (JRE). Der Agent selbst ist eine JAR-Datei i
 der bereits alle Abhängigkeiten verpackt sind. Die derzeit verwendete Agentenlogik
 *CarefulAgent* wurde von [LiquidFun](https://github.com/LiquidFun) entwickelt.
 
-
-
 [**Dokumentation zu wumpusDetective**](wumpusDetective/README.md)
+
+
+**Beispielausgabe des Monitors und eines Agenten (CarefullAgent):**
+
+![Ausgabe CarefullAgent](media/agent_4_agents.gif)
+
+
 
 ## Der Monitor (wumpusMonitor)
 
@@ -35,11 +40,6 @@ Des Weiteren bietet der Monitor auch ein HTTP-Endpoint über den der gesamte Zus
 Welt erfragt werden kann. Eine externe Software kann diese Daten
 zur Visualisierung nutzen. Für jede Simulaion werden Parameter und Ergebnisse
 in die Datei `results_benchmark.csv` zu späteren Auswertung gespeichert.
-
-
-**Beispielausgabe des Monitors mit 8 Agenten**
-
-![Ausgabe des Monitors](media/monitor_8_agents.gif)
 
 
 [**Dokumentation des Monitors**](wumpusMonitor/README.md)
