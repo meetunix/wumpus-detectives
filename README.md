@@ -20,7 +20,7 @@ Die Agenten sind in Java implementiert und können sich untereinander über ein 
 einfaches Protokoll (via TCP) Nachrichten schicken. Jeder Agent benötigt eine
 installierte Java-Laufzeit-umgebung (JRE). Der Agent selbst ist eine JAR-Datei in
 der bereits alle Abhängigkeiten verpackt sind. Die derzeit verwendete Agentenlogik
-*CarefulAgent* wurde von @LiquidFun entwickelt.
+*CarefulAgent* wurde von [LiquidFun](https://github.com/LiquidFun) entwickelt.
 
 
 
