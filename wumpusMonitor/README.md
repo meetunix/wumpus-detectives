@@ -1,90 +1,83 @@
 # wumpusMonitor
 
-[English README here](README_EN.md)
+[German README here](README_DE.md)
 
-Der Monitor generiert und verwaltet die Spielwelt. Er bietet eine Schnittstelle,
-über das sich die Agenten registrieren, ihren Zustand melden und
-Informationen zu ihrer aktuellen Position abrufen können.
-Des Weiteren bietet der Monitor auch ein HTTP-Endpoint über den der gesamte Zustand der
-Welt erfragt werden kann. Eine externe Software kann diese Daten
-zur Visualisierung nutzen.
+The monitor generates and manages the game world. It provides an interface through which agents can register, report their state and retrieve information about their current position. The monitor also provides an HTTP endpoint that can be used to query the entire state of the world. An external software can use this data for visualization.
 
 
-## Starten
+## Start
 
 ```
 java -jar target/wumpusMonitor-[VERSION]-jar-with-dependencies.jar -b http://127.0.0.1:12345 -w wumpus://localhost:6666 -l warn
 ```
 
-`-b` Basis-URL auf der der HTTP-Server lauscht.
+`-b` Base URL on which the HTTP server is listening.
 
-`-w` URL zur Agent -> Monitor-Kommunikation.
+`-w` URL to the agent -> monitor communication.
 
-`-l` Log-Level [warn,info, debug, trace]
-
-
-Optionale Parameter:
+`-l` Log level [warn, info, debug, trace].
 
 
-`-t` Drosselung der Simulation pro Schritt um X Millisekunden (default: 0)
+Optional parameters:
 
-`-r` Kommunikationsradius der Agenten (Felder) (default: 0)
 
-`-s` Dauer der Subscription-Phase in Sekunden (default: 5 Sekunden)
+`-t` Throttle simulation per step by X milliseconds (default: 0).
 
-Der Monitor schreibt eine Log-Datei in das Verzeichnis, aus dem er gestartet wurde:
+`-r` Communication radius of agents (fields) (default: 0)
+
+`-s` Duration of subscription phase in seconds (default: 5 seconds)
+
+The monitor writes a log file to the directory from which it was started:
 `wumpusMonitor.log`
 
 
-## Ausgabe auf Kommandozeile
+## Output to command line
 
-Beispielausgabe des Monitors mit 8 Agenten, einer Kommunikationsreichweite von 2 Feldern
-und keiner Drosselung:
+Example output of the monitor with 8 agents, a communication range of 2 fields and no throttling:
 
 
-![Ausgabe des Monitors](../media/monitor_8_agents.gif)
+![output of the monitor](../media/monitor_8_agents.gif)
 
 
 
 ## HTTP REST-API
 
-Um den aktuellen Zustand der Welt zu erfragen existiert ein HTTP-Endpoint:
-`http://[BASIS-URL:PORT]/wumpus/worldstate`.
+To request the current state of the world there is an HTTP endpoint: `http://[BASE-URL:PORT]/wumpus/worldstate`.
 
-Eine einfache Abfrage kann mit `curl` geschehen:
+A simple query can be done with `curl`:
 
-Sollte der Statuscode **204 No Content** zurückkommen, so befindet sich der Monitor noch
-in der *subscription-phase* und die Welt wurde noch nicht generiert.
+If the status code **204 No Content** comes back, the monitor is still in the *subscription-phase* and the world has not been generated yet.
 
-### Anfragen an den Endpoint
+### Requests to the endpoint
 
-#### 1. Möglichkeit: unkomprimiert (m2m)
+#### 1st option: uncompressed (m2m).
 
-Unkomprimiertes JSON-Objekt, bei einer 32x32 Feldgröße: ca. 47 KiB
+Uncompressed JSON object, for a 32x32 field size: about 47 KiB
 
 ```
 curl -H "accept: application/json" 'http://127.0.0.1:12345/wumpus/worldstate'
 ```
 
-[Beispielergebnis](samples/sample_world_state.json)
+[sample result](samples/sample_world_state.json)
 
-#### 2. Möglichkeit: unkomprimiert (m2h)
+#### 2nd possibility: uncompressed (m2h)
 
-Für einen Menschen besser lesbar, bei einer 32x32 Feldgröße: ca. 67 KiB
+More readable for a human, for a 32x32 field size: about 67 KiB
 
 ```
 curl -H "accept: application/json" 'http://127.0.0.1:12345/wumpus/worldstate?human=true'
 ```
 
-[Beispielergebnis](samples/sample_world_state_hr.json)
+[sample result](samples/sample_world_state_hr.json)
 
 
-#### 3. Möglichkeit: gzip komprimiert (m2m)
+#### 3rd option: gzip compressed (m2m)
 
-GZIP-komprimiertes JSON-Objekt, bei einer 32x32 Feldgröße: < 1 KiB
+GZIP compressed JSON object, for a 32x32 field size: < 1 KiB
 
 ```
 curl -H "accept: application/json" -H "accept-encoding: gzip" 'http://127.0.0.1:12345/wumpus/worldstate'
 ```
 
-[Beispielergebnis](samples/sample_world_state.json.gzip)
+[sample-result](samples/sample_world_state.json.gzip)
+

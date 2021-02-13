@@ -1,17 +1,18 @@
 # wumpus-detectives
 
-[German README here](README.md)
+[English README here](README.md)
 
-**wumpus-detective** is to a simple agent, surviving in a multi-agent scenario together with other agents in the Wumpus world.
+**wumpus-detective** soll ein einfacher Agent werden, der in einem Multi-Agenten-Szenario
+zusammen mit anderen Agenten in der Wumpus-Welt überleben soll.
 
 
-## Compilation
+## Übersetzen
 
 ```
 $ mvn clean compile package
 ```
 
-## Running
+## Starten
 
 ```
 $ cp target/wumpusDetective-[VERSION]-jar-with-dependencies.jar wDetective.jar
@@ -19,27 +20,36 @@ $ java -jar wDetective.jar --local-url wd://localhost:2000 --name jochen ----mon
 
 ```
 
-On Linux/BSD/Mac you can start multiple agents in parallel using the script `test-scripts/startParallelAgents.sh`. To use it, [GNU Parallel](https://www.gnu.org/software/parallel/) is required.
+Unter Linux/BSD/Mac können mithilfe des Skriptes `test-scripts/startParallelAgents.sh`
+mehrere Agenten parallel gestartet werden. Zur Benuztung wird
+[GNU Parallel](https://www.gnu.org/software/parallel/) benötigt.
 
-The agents connect to a monitor at the address `localhost:6666`. The script can be easily adapted to use a monitor on another system for example.
+Die Agenten verbinden sich mit einem Monitor unter der Adresse `localhost:6666`. Das
+Skript kann einfach angepasst werden um zum Beispiel einen Monitor auf einem anderem
+System zu verwenden.
 
-##### Example - starting 16 agents:
+##### Beispiel - Starten von 16 Agenten:
 
 
 ```bash
 test-scripts/startParallelAgents.sh 16
 ```
 
-## Output
+## Ausgabe
 
-The agent also prints its state on the command line. In the following example, you can see the output of a *CarefulAgent* (right) and the output of the monitor (left) with three other agents, a communication distance of 4 fields and a throttling of 50 ms per action. You can see very clearly how the agent updates its world state when other agents are within communication range.
+Auch der Agent gibt seinen Zustand auf der Kommandozeile aus. Im folgenden Beispiel,
+sieht man die Ausgabe eines *CarefulAgent* (rechts) und die Ausgabe des Monitors (links)
+mit drei weiteren Agenten, einer Kommunikationsdistanz von 4 Feldern und einer
+Drosselung von 50 ms pro Aktion. Man kann sehr gut erkennen, wie der Agent seinen
+Weltzustand aktualisiert, wenn andere Agenten in Kommunikationsreichweite sind.
 
 
-![Output CarefulAgent](../media/agent_4_agents.gif)
+![Ausgabe CarefulAgent](../media/agent_4_agents.gif)
 
-## Usage
+## Verwendung
 
-A short example of a simple agent that simply runs in an arbitrary direction.
+Ein kurzes Beispiel für einen einfachen Agenten, der einfach in eine beliebige Richtung
+läuft.
 
 
 ```java
@@ -48,7 +58,7 @@ public class LogicA2M implements AgentLogic {
 
     private static Logger logger = LogManager.getLogger(LogicA2M.class);
 
-	private agent a;
+	private Agent 	a;
 
 	public LogicA2M(AgentContext context) {
 		this.a = new Agent(context); // create new agent and send description
@@ -86,4 +96,5 @@ public class LogicA2M implements AgentLogic {
 		}
 	}
 }
+
 ```
